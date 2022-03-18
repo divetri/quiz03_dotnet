@@ -324,6 +324,7 @@ namespace Quiz03
                     }
                 }
                 Console.WriteLine($"Jawaban siswa {i} yang benar: {count}");
+                count=0;
             }
         }
     }

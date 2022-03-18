@@ -1,4 +1,4 @@
-﻿namespace Quiz03
+namespace Quiz03
 {
     class Solution
     {
@@ -179,16 +179,20 @@
             {
                 for (int j = 0; j < n; j++)
                 {
+                    //diagonal, semakin ke kanan semakin besar
                     if (j == n-i-1)
                     {
                         mat[i, j] = j;
                     }
+                    //kanan, semakin ke bawah semakin besar
                     else if (j==n-1)
                     {
                         mat[i, j] = i + j;
                     }
+                    //bawah, semakin ke kiri semakin besar
                     else if (i == n - 1)
                     {
+                        //keliling segitiga - j
                         mat[i, j] = ((n-1)*3)-(j);
                     }
                     else
@@ -203,18 +207,21 @@
             {
                 for (int j = 0; j < n; j++)
                 {
+                    //area dibawah diagonal
                     if (j >= n - i - 1)
                     {
+                        //setiap isi matrix kelipatan 4 diubah menjadi 3
                         if ((mat[i, j] + 1) % 4 == 0)
                         {
                             mat[i, j] = 3;
                             Console.Write($"{mat[i, j]}\t");
                         }
+                        //tengah kosong
                         else if (mat[i,j] == 0 && j != n - i - 1)
                         {
-
                             Console.Write("\t");
                         }
+                        //selain kelipatan 4, dikali 3
                         else
                         {
                             int x = mat[i, j] - (mat[i, j] / 4);
@@ -222,11 +229,11 @@
                             Console.Write($"{mat[i, j]}\t");
                         }
                     }
+                    //area diatas diagonal kosong
                     else
                     {
                         Console.Write("\t");
                     }
-                    
                 }
                 Console.WriteLine();
             }
@@ -319,8 +326,5 @@
                 Console.WriteLine($"Jawaban siswa {i} yang benar: {count}");
             }
         }
-        
-        
-
     }
 }
